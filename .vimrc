@@ -30,7 +30,7 @@ nnoremap <C-h> <C-W><C-h> "Ctrl-h to move left a split
 
 " Vundle setup
 " set the runtime path to include Vundle and initialize
-set rtp+=~/.vim/bundle/Vundle.vim
+set rtp+=~/.vim/bundle/Vundle
 call vundle#begin()
 " alternatively, pass a path where Vundle should install plugins
 "call vundle#begin('~/some/path/here')
