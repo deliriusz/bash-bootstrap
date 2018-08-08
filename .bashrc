@@ -89,6 +89,7 @@ fi
 
 # some more ls aliases
 alias ll='ls -alF'
+alias lla='ll'
 alias la='ls -A'
 alias l='ls -CF'
 
@@ -103,6 +104,10 @@ alias alert='notify-send --urgency=low -i "$([ $? = 0 ] && echo terminal || echo
 
 if [ -f ~/.bash_aliases ]; then
     . ~/.bash_aliases
+fi
+
+if [ -f ~/.bashrc.custom ]; then
+    . ~/.bashrc.custom
 fi
 
 # enable programmable completion features (you don't need to enable
