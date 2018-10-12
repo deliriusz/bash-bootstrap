@@ -91,3 +91,7 @@ fi
 if [ -f ~/.bashrc.custom ]; then
     . ~/.bashrc.custom
 fi
+
+set -o vi
+bindkey -v
+bindkey "^R" history-incremental-search-backwards
