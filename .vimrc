@@ -37,8 +37,10 @@ call vundle#begin()
 "call vundle#begin('~/some/path/here')
 
 " let Vundle manage Vundle, required
-Plugin 'VundleVim/Vundle.vim'
-Plugin 'tpope/vim-surround'
+Plugin 'VundleVim/Vundle.vim' " this plugin manager
+Plugin 'tpope/vim-surround' " 
+Plugin 'godlygeek/tabular' " GREAT plugin for auto - identation - :Tabularize /<pattern> , where pattern is a regex to match for alignemnt, e.g. = aligns equal signs
+Plugin 'ervandew/supertab' " great intelligent completion - way better that <C-n>
 
 " The following are examples of different formats supported.
 " Keep Plugin commands between vundle#begin/end.
