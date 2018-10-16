@@ -41,6 +41,7 @@ Plugin 'VundleVim/Vundle.vim' " this plugin manager
 Plugin 'tpope/vim-surround' " 
 Plugin 'godlygeek/tabular' " GREAT plugin for auto - identation - :Tabularize /<pattern> , where pattern is a regex to match for alignemnt, e.g. = aligns equal signs
 Plugin 'ervandew/supertab' " great intelligent completion - way better that <C-n>
+Plugin 'ctrlpvim/ctrlp.vim' " fuzzy finding
 
 " The following are examples of different formats supported.
 " Keep Plugin commands between vundle#begin/end.
