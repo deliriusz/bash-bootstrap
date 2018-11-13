@@ -27,6 +27,7 @@ nnoremap <C-j> <C-W><C-j> "Ctrl-j to move down a split
 nnoremap <C-k> <C-W><C-k> "Ctrl-k to move up a split
 nnoremap <C-l> <C-W><C-l> "Ctrl-l to move right a split
 nnoremap <C-h> <C-W><C-h> "Ctrl-h to move left a split
+nnoremap <silent><expr> <Leader>h (&hls && v:hlsearch ? ':nohls' : ':set hls')."\n"
 
 
 " Vundle setup
@@ -38,7 +39,9 @@ call vundle#begin()
 
 " let Vundle manage Vundle, required
 Plugin 'VundleVim/Vundle.vim' " this plugin manager
-Plugin 'tpope/vim-surround' " 
+Plugin 'tpope/vim-surround' "
+Plugin 'tpope/vim-unimpaired'
+Plugin 'tpope/vim-repeat'
 Plugin 'godlygeek/tabular' " GREAT plugin for auto - identation - :Tabularize /<pattern> , where pattern is a regex to match for alignemnt, e.g. = aligns equal signs
 Plugin 'ervandew/supertab' " great intelligent completion - way better that <C-n>
 Plugin 'ctrlpvim/ctrlp.vim' " fuzzy finding
