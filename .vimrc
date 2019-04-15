@@ -23,6 +23,18 @@ set relativenumber
 set nocompatible
 filetype off
 
+" netrw settings
+let g:netrw_banner = 0
+let g:netrw_liststyle = 3
+let g:netrw_browse_split = 4
+let g:netrw_altv = 1
+let g:netrw_winsize = 25
+
+" buffer switch - allow wildcards bar and case insensitive search there
+set wildmenu
+set wildmode=longest:full,full
+set wildignorecase
+
 nnoremap <C-j> <C-W><C-j> "Ctrl-j to move down a split
 nnoremap <C-k> <C-W><C-k> "Ctrl-k to move up a split
 nnoremap <C-l> <C-W><C-l> "Ctrl-l to move right a split
