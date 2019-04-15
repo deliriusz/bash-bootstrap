@@ -33,6 +33,7 @@ let g:netrw_winsize = 25
 " buffer switch - allow wildcards bar and case insensitive search there
 set wildmenu
 set wildmode=longest:full,full
+set wildignore+=*/tmp/*,*.so,*.swp,.git/*,node_modules
 set wildignorecase
 
 nnoremap <C-j> <C-W><C-j> "Ctrl-j to move down a split
