@@ -1,0 +1,11 @@
+export EDITOR='vim'
+
+set -o vi
+bindkey -v
+
+alias v="nvim"
+alias vi="nvim"
+alias vim="nvim"
+alias tm="~/.scripts/tmux-attach.sh"
+
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh

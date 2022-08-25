@@ -1,9 +1,9 @@
-export PATH=$PATH
+export PATH=$HOME/.jenv/bin:/usr/local/mysql/bin:/usr/local/go/bin:$HOME/go/bin:~/.scripts:$PATH
 #export TERM="xterm-256color"
 # If you come from bash you might have to change your $PATH.
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
 
-# OPTIONAL
+# Path to your oh-my-zsh installation.
 export ZSH=/Users/kalinowr/.oh-my-zsh
 export PS1="\u@\s "
 export EDITOR='vim'
@@ -33,7 +33,7 @@ ZSH_THEME="powerlevel9k/powerlevel9k"
 # DISABLE_AUTO_TITLE="true"
 
 # Uncomment the following line to enable command auto-correction.
-#ENABLE_CORRECTION="true"
+ENABLE_CORRECTION="true"
 
 # Uncomment the following line to display red dots whilst waiting for completion.
 # COMPLETION_WAITING_DOTS="true"
@@ -103,13 +103,10 @@ POWERLEVEL9K_SHORTEN_STRATEGY=”truncate_from_right”
 #Set default user to avoid showing 'user' on every line
 DEFAULT_USER=”kalinowr”
 
-set -o vi
-bindkey -v
-
-alias v="nvim"
-alias vi="nvim"
-alias vim="nvim"
-
-[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
 source "/Users/kalinowr/.oh-my-zsh/custom/themes/spaceship.zsh-theme"
+eval "$(jenv init -)"
+
+source "/Users/kalinowr/.oh-my-zsh/custom/themes/spaceship.zsh-theme"
+
+source ~/.commonrc
