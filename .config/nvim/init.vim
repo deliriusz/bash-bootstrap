@@ -133,3 +133,7 @@ lua require("telescope-config")
 lua require("nvim-which-key-config")
 lua require("treesitter-config")
 set timeoutlen=100
+
+
+" autocmd - filetype based config
+autocmd FileType go setlocal omnifunc=v:lua.vim.lsp.omnifunc

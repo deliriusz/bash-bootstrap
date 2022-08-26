@@ -13,5 +13,7 @@ null_ls.setup({
     null_ls.builtins.diagnostics.revive, -- go
     null_ls.builtins.diagnostics.selene, -- lua
     null_ls.builtins.diagnostics.solhint, -- solidity
+    null_ls.builtins.diagnostics.shellcheck, -- shell script
+    null_ls.builtins.code_actions.shellcheck, -- shell script 
   },
 })
