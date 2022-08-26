@@ -45,16 +45,19 @@ let mapleader = ","
 let maplocalleader=","
 
 " auto close brackets, use <C-v> to escape it
-inoremap " ""<left>
-inoremap ' ''<left>
-inoremap ( ()<left>
-inoremap [ []<left>
-inoremap { {}<left>
-inoremap {<CR> {<CR>}<ESC>O
-inoremap {;<CR> {<CR>};<ESC>O
+"inoremap " ""<left>
+"inoremap ' ''<left>
+"inoremap ( ()<left>
+"inoremap [ []<left>
+"inoremap { {}<left>
+"inoremap {<CR> {<CR>}<ESC>O
+"inoremap {;<CR> {<CR>};<ESC>O
 
 nnoremap <Leader>t :Tabularize /
 vnoremap <Leader>t :Tabularize /
+
+nnoremap ]b :bn<CR>
+nnoremap [b :bp<CR>
 
 set relativenumber
 set nocompatible
@@ -72,7 +75,9 @@ set wildignorecase
 
 call plug#begin('~/.vim/plugged')
 Plug 'tpope/vim-fugitive'
+Plug 'jreybert/vimagit'
 Plug 'airblade/vim-gitgutter'
+
 Plug 'tpope/vim-surround'
 "Plug 'tpope/vim-unimpaired'
 Plug 'tpope/vim-commentary'
@@ -124,4 +129,5 @@ let g:startify_custom_header = 'startify#center(startify#fortune#cowsay())'
 lua require("lsp-config")
 lua require("telescope-config")
 lua require("nvim-which-key-config")
+lua require("treesitter-config")
 set timeoutlen=100
