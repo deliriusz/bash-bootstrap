@@ -82,7 +82,5 @@ lspconfig.tsserver.setup({
     end,
 })
 
-require("null-ls").setup({})
-
-lspconfig["null-ls"].setup({ on_attach = on_attach })
+--lspconfig["null-ls"].setup({ on_attach = on_attach })
 -- end of TS setup --

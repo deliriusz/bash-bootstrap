@@ -56,8 +56,9 @@ let maplocalleader=","
 nnoremap <Leader>t :Tabularize /
 vnoremap <Leader>t :Tabularize /
 
-nnoremap ]b :bn<CR>
-nnoremap [b :bp<CR>
+" unimapired takes care of that
+"nnoremap ]b :bn<CR>
+"nnoremap [b :bp<CR>
 
 set relativenumber
 set nocompatible
@@ -79,7 +80,7 @@ Plug 'jreybert/vimagit'
 Plug 'airblade/vim-gitgutter'
 
 Plug 'tpope/vim-surround'
-"Plug 'tpope/vim-unimpaired'
+Plug 'tpope/vim-unimpaired'
 Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-repeat'
 Plug 'godlygeek/tabular'
@@ -113,10 +114,10 @@ let g:airline#extensions#tabline#left_sep = ' '
 let g:airline#extensions#tabline#left_alt_sep = '|'
 let g:airline_powerline_fonts = 1
 set laststatus=2
-set t_Co=256
 set noshowmode
 let g:airline_theme='cool' " please note that for really fine looking toolbar, you have to add fonts for Powerline, otherwise you'll see an underscore characters
 
+set t_Co=256
 set termguicolors
 "to allow neosolarized, proper Plug is required https://github.com/icymind/NeoSolarized
 colorscheme NeoSolarized
@@ -127,6 +128,7 @@ let g:startify_bookmarks = [{'c': '~/.config/nvim/init.vim'}, '~/.zshrc']
 let g:startify_custom_header = 'startify#center(startify#fortune#cowsay())'
 
 lua require("lsp-config")
+lua require("null-ls-config")
 lua require("telescope-config")
 lua require("nvim-which-key-config")
 lua require("treesitter-config")
