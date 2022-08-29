@@ -84,7 +84,7 @@ Plug 'tpope/vim-unimpaired'
 Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-repeat'
 Plug 'godlygeek/tabular'
-Plug 'ervandew/supertab'
+"Plug 'ervandew/supertab'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 Plug 'mhinz/vim-startify'
@@ -101,6 +101,15 @@ Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}  " We recommend upda
 Plug 'jose-elias-alvarez/null-ls.nvim'
 Plug 'jose-elias-alvarez/nvim-lsp-ts-utils'
 Plug 'nvim-lua/plenary.nvim'
+
+Plug 'hrsh7th/cmp-nvim-lsp'
+Plug 'hrsh7th/cmp-buffer'
+Plug 'hrsh7th/cmp-path'
+Plug 'hrsh7th/cmp-cmdline'
+Plug 'hrsh7th/nvim-cmp'
+Plug 'L3MON4D3/LuaSnip'
+Plug 'saadparwaiz1/cmp_luasnip'
+Plug 'rafamadriz/friendly-snippets'
 
 Plug 'kana/vim-textobj-user'
 Plug 'kana/vim-textobj-entire'
@@ -128,12 +137,22 @@ let g:startify_bookmarks = [{'c': '~/.config/nvim/init.vim'}, '~/.zshrc']
 let g:startify_custom_header = 'startify#center(startify#fortune#cowsay())'
 
 lua require("lsp-config")
+lua require("luasnip-config")
 lua require("null-ls-config")
 lua require("telescope-config")
 lua require("nvim-which-key-config")
 lua require("treesitter-config")
 set timeoutlen=100
 
+lua <<EOF
+local border_opts = { border = 'rounded', focusable = false, scope = 'line' }
+
+vim.diagnostic.config({ virtual_text = true, float = border_opts })
+vim.fn.sign_define('DiagnosticSignError', { text = '✗', texthl = 'DiagnosticSignError' })
+vim.fn.sign_define('DiagnosticSignWarn', { text = '!', texthl = 'DiagnosticSignWarn' })
+vim.fn.sign_define('DiagnosticSignInformation', { text = '', texthl = 'DiagnosticSignInfo' })
+vim.fn.sign_define('DiagnosticSignHint', { text = '', texthl = 'DiagnosticSignHint' })
+EOF
 
 " autocmd - filetype based config
 autocmd FileType go setlocal omnifunc=v:lua.vim.lsp.omnifunc
