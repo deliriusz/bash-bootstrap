@@ -143,28 +143,7 @@ set background=dark
 let g:startify_bookmarks = [{'c': '~/.config/nvim/init.vim'}, '~/.zshrc']
 let g:startify_custom_header = 'startify#center(startify#fortune#cowsay())'
 
-lua<<EOF
-
-local navic = require("nvim-navic")
-local feline = require("feline")
-
---table.insert(components.active[1], {
---   provider = function()
---      return navic.get_location()
---   end,
---   enabled = function()
---      return navic.is_available()
---   end
---})
-
---feline.setup({ components = components })
---feline.winbar.setup({ components = components })
-
-feline.setup({})
-feline.winbar.setup({})
-EOF
-
-"lua require("feline-nvim-config")
+lua require("feline-nvim-config")
 lua require("lsp-config")
 lua require("luasnip-config")
 lua require("null-ls-config")

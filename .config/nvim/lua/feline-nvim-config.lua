@@ -14,4 +14,4 @@ local feline = require("feline")
 --feline.winbar.setup({ components = components })
 
 feline.setup({})
-feline.winbar.setup({})
+--feline.winbar.setup({}) -- TODO: winbar will be available in neovim v0.8
