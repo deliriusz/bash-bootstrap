@@ -53,6 +53,7 @@ let maplocalleader=","
 "inoremap {<CR> {<CR>}<ESC>O
 "inoremap {;<CR> {<CR>};<ESC>O
 
+nnoremap <Leader>b :NvimTreeToggle<CR>
 nnoremap <Leader>t :Tabularize /
 vnoremap <Leader>t :Tabularize /
 
@@ -79,14 +80,20 @@ Plug 'tpope/vim-fugitive'
 Plug 'jreybert/vimagit'
 Plug 'airblade/vim-gitgutter'
 
+" file explorer
+Plug 'kyazdani42/nvim-web-devicons' " optional, for file icons
+Plug 'kyazdani42/nvim-tree.lua'
+
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-unimpaired'
 Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-repeat'
 Plug 'godlygeek/tabular'
-"Plug 'ervandew/supertab'
-Plug 'vim-airline/vim-airline'
-Plug 'vim-airline/vim-airline-themes'
+"Plug 'vim-airline/vim-airline'
+"Plug 'vim-airline/vim-airline-themes'
+Plug 'SmiteshP/nvim-navic'
+Plug 'feline-nvim/feline.nvim'
+
 Plug 'mhinz/vim-startify'
 Plug 'liuchengxu/vim-which-key'
 Plug 'AckslD/nvim-whichkey-setup.lua'
@@ -136,23 +143,38 @@ set background=dark
 let g:startify_bookmarks = [{'c': '~/.config/nvim/init.vim'}, '~/.zshrc']
 let g:startify_custom_header = 'startify#center(startify#fortune#cowsay())'
 
+lua<<EOF
+
+local navic = require("nvim-navic")
+local feline = require("feline")
+
+--table.insert(components.active[1], {
+--   provider = function()
+--      return navic.get_location()
+--   end,
+--   enabled = function()
+--      return navic.is_available()
+--   end
+--})
+
+--feline.setup({ components = components })
+--feline.winbar.setup({ components = components })
+
+feline.setup({})
+feline.winbar.setup({})
+EOF
+
+"lua require("feline-nvim-config")
 lua require("lsp-config")
 lua require("luasnip-config")
 lua require("null-ls-config")
 lua require("telescope-config")
 lua require("nvim-which-key-config")
+lua require("nvim-tree-config")
 lua require("treesitter-config")
+lua require("diagnostics-config")
+
 set timeoutlen=100
-
-lua <<EOF
-local border_opts = { border = 'rounded', focusable = false, scope = 'line' }
-
-vim.diagnostic.config({ virtual_text = true, float = border_opts })
-vim.fn.sign_define('DiagnosticSignError', { text = '✗', texthl = 'DiagnosticSignError' })
-vim.fn.sign_define('DiagnosticSignWarn', { text = '!', texthl = 'DiagnosticSignWarn' })
-vim.fn.sign_define('DiagnosticSignInformation', { text = '', texthl = 'DiagnosticSignInfo' })
-vim.fn.sign_define('DiagnosticSignHint', { text = '', texthl = 'DiagnosticSignHint' })
-EOF
 
 " autocmd - filetype based config
 autocmd FileType go setlocal omnifunc=v:lua.vim.lsp.omnifunc
