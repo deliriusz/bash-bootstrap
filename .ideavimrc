@@ -1,10 +1,10 @@
-set surround
-set incsearch
 set clipboard+=unnamed
-set ideajoin
+set incsearch
 set smartcase
 
+Plug 'tpope/vim-surround'
 Plug 'tpope/vim-commentary'
+Plug 'vim-scripts/ReplaceWithRegister'
 Plug 'kana/vim-textobj-entire'
 
 " unimpaired mappings - from https://github.com/saaguero/ideavimrc/blob/master/.ideavimrc
