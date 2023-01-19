@@ -29,7 +29,7 @@ local keymap = {
    },
    g = {
       name = "+git",
-      g = { "<cmd>Telescope git_commits<CR>", "commits" },
+      g = { "<cmd>Neogit<CR>", "Neogit" },
       c = { "<cmd>Telescope git_bcommits<CR>", "bcommits" },
       b = { "<cmd>Telescope git_branches<CR>", "branches" },
       s = { "<cmd>Telescope git_status<CR>", "status" },
