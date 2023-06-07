@@ -31,6 +31,8 @@ vim.opt.backup = true
 vim.opt.backupdir = "/tmp"
 vim.opt.dir = "/tmp"
 
+vim.opt.clipboard = 'unnamedplus'
+
 --  buffer switch - allow wildcards bar and case insensitive search there
 -- vim.opt.wildmenu
 -- vim.opt.wildmode=longest,list,full

@@ -22,21 +22,21 @@ telescope.setup({
     -- builtin picker
   },
   extensions = {
-    file_browser = {
-      theme = "ivy",
-      -- disables netrw and use telescope-file-browser in its place
-      hijack_netrw = true,
-      mappings = {
-        ["i"] = {
-          -- your custom insert mode mappings
-        },
-        ["n"] = {
-          ["<C-j>"] = actions.move_selection_next,
-          ["<C-k>"] = actions.move_selection_previous,
-        },
-      },
-    },
+    -- file_browser = {
+    --   theme = "ivy",
+    --   -- disables netrw and use telescope-file-browser in its place
+    --   hijack_netrw = true,
+    --   mappings = {
+    --     ["i"] = {
+    --       -- your custom insert mode mappings
+    --     },
+    --     ["n"] = {
+    --       ["<C-j>"] = actions.move_selection_next,
+    --       ["<C-k>"] = actions.move_selection_previous,
+    --     },
+    --   },
+    -- },
   }
 })
 
-require("telescope").load_extension "file_browser"
+--require("telescope").load_extension "file_browser" -- plugin disabled, it breaks nvim-tree, then opening vim with a folder param

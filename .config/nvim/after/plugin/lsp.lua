@@ -5,12 +5,12 @@ lsp.preset("recommended")
 lsp.ensure_installed({
   'tsserver',
   'eslint',
-  'sumneko_lua',
+  'lua-language-server',
   'rust_analyzer',
 })
 
 -- Fix Undefined global 'vim'
-lsp.configure('sumneko_lua', {
+lsp.configure('lua-language-server', {
     settings = {
         Lua = {
             diagnostics = {
@@ -74,8 +74,9 @@ lsp.on_attach(function(client, bufnr)
   vim.keymap.set("n", "<leader>wl", "<cmd>lua print(vim.inspect(vim.lsp.buf.list_workspace_folders()))<CR>", opts)
   vim.keymap.set("n", "<leader>D", vim.lsp.buf.type_definition, opts)
   vim.keymap.set("n", "<leader>q", vim.diagnostic.setloclist, opts)
-  vim.keymap.set("n", "<leader>f", vim.lsp.buf.formatting, opts)
-end)
+  -- vim.keymap.set("n", "<leader>f", vim.lsp.buf.formatting, opts) -- no formatter for Solidity, it breaks
+end
+)
 
 lsp.setup()
 
