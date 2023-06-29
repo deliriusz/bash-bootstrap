@@ -4,7 +4,9 @@ vim.opt.relativenumber = true
 vim.opt.ts = 3
 vim.opt.sts = 3
 vim.opt.sw = 3
+
 vim.opt.expandtab = true
+vim.opt.wrap = true
 
 -- vim.opt.backspace = 2
 

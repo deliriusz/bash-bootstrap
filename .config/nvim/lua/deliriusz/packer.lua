@@ -14,12 +14,20 @@ return require('packer').startup(function(use)
    }
 
    use({
-      'rose-pine/neovim',
-      as = 'rose-pine',
+      'EdenEast/nightfox.nvim',
+      as = 'nightfox',
       config = function()
-         vim.cmd('colorscheme rose-pine')
+         vim.cmd('colorscheme nightfox')
       end
    })
+
+   -- use({
+   --    'rose-pine/neovim',
+   --    as = 'rose-pine',
+   --    config = function()
+   --       vim.cmd('colorscheme rose-pine')
+   --    end
+   -- })
 
    use({'nvim-treesitter/nvim-treesitter', run = ':TSUpdate'})
    use {'nvim-telescope/telescope-file-browser.nvim'}
@@ -49,6 +57,7 @@ return require('packer').startup(function(use)
         'sindrets/diffview.nvim'
       }
     }
+    use('lewis6991/gitsigns.nvim')
 
    use {
         "startup-nvim/startup.nvim",

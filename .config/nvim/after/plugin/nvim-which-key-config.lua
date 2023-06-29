@@ -1,16 +1,22 @@
 local wk = require("which-key")
 
 local keymap = {
-   w = { "<cmd>w!<CR>", "save file" },
+   w = {
+      name = "+write",
+      w = { "<cmd>w!<CR>", "save file" },
+      a = { "<cmd>w!<CR>", "save all" },
+   },
    s = { "<cmd>Startify<CR>", "open start page" },
+   e = { "<cmd>enew<CR>", "new buffer" },
    f = {
       name = "+find",
-      f = { "<cmd>Telescope find_files<CR>", "files" },
+      a = { "<cmd>Telescope find_files<CR>", "any files" },
+      f = { "<cmd>Telescope git_files<CR>", "git files" },
       b = { "<cmd>Telescope buffers<CR>", "buffers" },
       h = { "<cmd>Telescope help_tags<CR>", "help tags" },
       o = { "<cmd>Telescope oldfiles<CR>", "old files" },
       l = { "<cmd>Telescope live_grep<CR>", "grep" },
-      r = { "<cmd>NvimTreeToggle<CR>", "browser" },
+      --r = { "<cmd>NvimTreeToggle<CR>", "browser" },
       k = { "<cmd>Telescope keymaps<CR>", "keymap" },
       d = { "<cmd>Telescope diagnostics<CR>", "diagnostics" },
       c = {
@@ -34,6 +40,7 @@ local keymap = {
       b = { "<cmd>Telescope git_branches<CR>", "branches" },
       s = { "<cmd>Telescope git_status<CR>", "status" },
       p = { "<cmd>GitGutterPrevHunk<CR>", "previous hunk" },
+      t = { "<cmd>GitGutterToggle<CR>", "toogle gutter" },
       n = { "<cmd>GitGutterNextHunk<CR>", "next hunk" },
       x = { "<cmd>GitGutterPreviewHunk<CR>", "preview hunk" },
       a = { "<cmd>GitGutterStageHunk<CR>", "stage hunk" },
