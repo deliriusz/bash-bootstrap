@@ -6,4 +6,18 @@ bindkey -v
 alias v="nvim"
 alias vi="nvim"
 alias vim="nvim"
-alias tm="~/.scripts/tmux-attach.sh"
+alias vimdiff="nvim -d"
+alias tm=". ~/.scripts/tmux-attach.sh"
+alias rmf="rm -rf"
+
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+
+export JAVA_HOME=/usr/lib/jvm/java-11-openjdk-amd64
+export PATH=/home/deliriusz/.local/bin:~/go/bin:$JAVA_HOME:~/.scripts:$PATH
+export ETH_RPC_URL=https://eth-mainnet.g.alchemy.com/v2/BeWpB3Sf9wYchFAcjsRVnNs54kIhVdFw
+export ETHERSCAN_KEY=K7U75SAHRJXRN2564YKFGR3BTGTRTIHVM2
+export ETHERSCAN_API_KEY=K7U75SAHRJXRN2564YKFGR3BTGTRTIHVM2
+export RIPGREP_CONFIG_PATH=$HOME/.ripgreprc
+
+# setup fasd
+eval "$(fasd --init zsh-hook zsh-ccomp zsh-ccomp-install zsh-wcomp zsh-wcomp-install)"

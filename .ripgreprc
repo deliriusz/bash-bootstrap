@@ -1,0 +1,7 @@
+--type-add
+web:*.{html,css,js,ts,jsx,tsx}*
+
+--type-add
+sol:*.{sol}*
+
+--smart-case
