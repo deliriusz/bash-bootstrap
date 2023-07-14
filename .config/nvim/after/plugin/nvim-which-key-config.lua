@@ -6,7 +6,12 @@ local keymap = {
       w = { "<cmd>w!<CR>", "save file" },
       a = { "<cmd>w!<CR>", "save all" },
    },
-   s = { "<cmd>Startify<CR>", "open start page" },
+   s = {
+      name = "+session",
+      s = { ":mks! ~/.vim/sessions/",   "save a session" },
+      l = { ":source ~/.vim/sessions/", "load a session" },
+      r = { ":!rm ~/.vim/sessions/", "remove a session" },
+   },
    e = { "<cmd>enew<CR>", "new buffer" },
    f = {
       name = "+find",
@@ -15,8 +20,8 @@ local keymap = {
       b = { "<cmd>Telescope buffers<CR>", "buffers" },
       h = { "<cmd>Telescope help_tags<CR>", "help tags" },
       o = { "<cmd>Telescope oldfiles<CR>", "old files" },
-      l = { "<cmd>Telescope live_grep<CR>", "grep" },
-      --r = { "<cmd>NvimTreeToggle<CR>", "browser" },
+      --l = { "<cmd>Telescope live_grep<CR>", "grep" },
+      l = { "<cmd>lua require('telescope').extensions.live_grep_args.live_grep_args()<CR>", "live grep with rg" },
       k = { "<cmd>Telescope keymaps<CR>", "keymap" },
       d = { "<cmd>Telescope diagnostics<CR>", "diagnostics" },
       c = {
