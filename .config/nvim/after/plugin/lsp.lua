@@ -5,7 +5,9 @@ lsp.preset("recommended")
 lsp.ensure_installed({
   'tsserver',
   'eslint',
-  'lua-language-server',
+  'bashls',
+  'solidity_ls_nomicfoundation',
+  'lua_ls',
   'rust_analyzer',
 })
 
