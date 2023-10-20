@@ -1,4 +1,5 @@
-require('deliriusz.packer')
 require('deliriusz.diagnostics-config')
+require('deliriusz.ft')
+require('deliriusz.packer')
 require('deliriusz.remap')
 require('deliriusz.set')

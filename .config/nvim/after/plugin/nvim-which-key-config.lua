@@ -65,6 +65,14 @@ local keymap = {
          b = { "<cmd>lua print(vim.inspect(vim.lsp.buf.list_workspace_folders()))<CR>", "list workspace folders" },
       },
    },
+   q = {
+      name = "+quickfix",
+      q = { "<cmd>copen<CR>", "open" },
+      c = { "<cmd>cclose<CR>", "close" },
+      l = { "<cmd>cnext<CR>", "next" },
+      h = { "<cmd>cprevious<CR>", "previous" },
+      f = { "<cmd>Telescope quickfix<CR>", "find in quickfix" },
+   },
 }
 
 wk.register(keymap, {

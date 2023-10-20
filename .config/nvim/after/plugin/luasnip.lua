@@ -22,15 +22,29 @@ ls.add_snippets(nil, {
     },
 })
 
+-- audit helpers
 ls.add_snippets(nil, {
     all = {
         snip({
             trig = "aud",
             namr = "Audit",
 
-            dscr = "Audit tag",
+            dscr = "@audit tag",
         }, {
-            text(" // @audit "),
+            text("// @audit "),
+        }),
+    },
+})
+
+ls.add_snippets(nil, {
+    all = {
+        snip({
+            trig = "iss",
+            namr = "@issue",
+
+            dscr = "@issue tag",
+        }, {
+            text("// @issue "),
         }),
     },
 })
