@@ -6,6 +6,10 @@ vim.g.maplocalleader=","
 vim.keymap.set("c", "<C-p>",  "<Up>")
 vim.keymap.set("c", "<C-n>", "<Down>")
 
+vim.keymap.set("i", "jk", "<Esc><cmd>w<CR>")
+
+vim.keymap.set("n", "<leader>r", "<cmd>source $MYVIMRC<CR>")
+
 vim.keymap.set("n", "<C-s>", "<cmd>w<CR>")
 vim.keymap.set("i", "<C-s>", "<C-o><cmd>w<CR>")
 vim.keymap.set("i", "<C-f><C-f>", "<C-x><C-f>")
@@ -14,6 +18,10 @@ vim.keymap.set("n", "<leader>b", "<cmd>NvimTreeToggle<CR>")
 vim.keymap.set("n", "<leader>t", ":Tabularize /")
 vim.keymap.set("v", "<leader>t", ":Tabularize /")
 
+vim.keymap.set("n", "<C-J>", "<C-W>J") -- Ctrl-j to move down a split
+vim.keymap.set("n", "<C-K>", "<C-W>K") -- Ctrl-k to move up a split
+vim.keymap.set("n", "<C-L>", "<C-W>L") -- Ctrl-l to move	right a split
+vim.keymap.set("n", "<C-H>", "<C-W>H") -- Ctrl-h to move left a split
 vim.keymap.set("n", "<C-j>", "<C-W><C-j>") -- Ctrl-j to move down a split
 vim.keymap.set("n", "<C-k>", "<C-W><C-k>") -- Ctrl-k to move up a split
 vim.keymap.set("n", "<C-l>", "<C-W><C-l>") -- Ctrl-l to move	right a split
@@ -38,3 +46,9 @@ vim.keymap.set("n", "66", "6gt")
 vim.keymap.set("n", "77", "7gt")
 vim.keymap.set("n", "88", "8gt")
 vim.keymap.set("n", "99", "9gt")
+
+vim.keymap.set("n", "<leader>ss", "<cmd>split<CR>")
+vim.keymap.set("n", "<leader>sv", "<cmd>vsplit<CR>")
+
+-- copy visually seleted lines with line numbers to + buffer
+vim.keymap.set("v", "<f4>", ":<home>redir @+<bar>silent! <end>number<bar>redir END<CR>")

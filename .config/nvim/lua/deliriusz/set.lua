@@ -1,3 +1,5 @@
+local api = vim.api
+
 vim.opt.autoindent = true
 vim.opt.number = true
 vim.opt.relativenumber = true
@@ -40,3 +42,12 @@ vim.opt.clipboard = 'unnamedplus'
 -- vim.opt.wildmode=longest,list,full
 -- vim.opt.wildignore+=*/tmp/*,*.so,*.swp,.git/*,node_modules  " MacOSX/Linux
 -- vim.opt.wildignorecase
+
+vim.opt.termguicolors = true
+
+-- comment style config
+api.nvim_create_autocmd("FileType", { pattern = "solidity", command = [[setlocal commentstring=//\ %s]] })
+api.nvim_create_autocmd("FileType", { pattern = "yul", command = [[setlocal commentstring=//\ %s]] })
+
+-- vim session options
+vim.o.sessionoptions="blank,buffers,curdir,folds,help,tabpages,winsize,winpos,terminal,localoptions"

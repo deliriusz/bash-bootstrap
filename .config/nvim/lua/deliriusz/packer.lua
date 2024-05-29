@@ -13,16 +13,28 @@ return require('packer').startup(function(use)
    --    requires = { {'nvim-lua/plenary.nvim'} }
    -- }
 
+   use 'NvChad/nvim-colorizer.lua'
+
+   use {
+     "AckslD/nvim-neoclip.lua",
+     requires = {
+       {'nvim-telescope/telescope.nvim'},
+     },
+     config = function()
+       require('neoclip').setup()
+     end,
+   }
+
+
    use({ 'nvim-telescope/telescope-live-grep-args.nvim' })
    use {
      'nvim-telescope/telescope.nvim',
      requires = {
        { 'nvim-telescope/telescope-live-grep-args.nvim' },
      },
-     config = function()
-       require('telescope').load_extension('live_grep_args')
-     end
    }
+
+   use 'rcarriga/nvim-notify'
 
    -- colorscheme
    use({
@@ -34,6 +46,11 @@ return require('packer').startup(function(use)
    })
 
    use({'nvim-treesitter/nvim-treesitter', run = ':TSUpdate'})
+   use({
+      "nvim-treesitter/nvim-treesitter-textobjects",
+      after = "nvim-treesitter",
+      requires = "nvim-treesitter/nvim-treesitter",
+   })
    --use {'nvim-telescope/telescope-file-browser.nvim'} -- not used
    use('nvim-treesitter/playground')
    use('theprimeagen/harpoon')
@@ -43,7 +60,13 @@ return require('packer').startup(function(use)
    use('tpope/vim-unimpaired')
    use('tpope/vim-commentary')
    use('tpope/vim-repeat')
+   use('tpope/vim-sleuth')
    use('godlygeek/tabular')
+
+   use {
+       's1n7ax/nvim-window-picker',
+       tag = 'v2.*',
+   }
 
    -- tabline
    use {
@@ -54,6 +77,12 @@ return require('packer').startup(function(use)
 
    use('folke/which-key.nvim')
 
+   -- automatic session management
+   use {
+      'jedrzejboczar/possession.nvim',
+      requires = { 'nvim-lua/plenary.nvim' },
+   }
+
    use {
       'TimUntersberger/neogit',
       requires = {
@@ -63,12 +92,13 @@ return require('packer').startup(function(use)
     }
     use('lewis6991/gitsigns.nvim')
 
-   use {
-        "startup-nvim/startup.nvim",
-        config = function()
-          require("startup").setup { theme = "evil" }
-        end,
-   }
+   -- use {
+   --    'nvimdev/dashboard-nvim',
+   --    -- event = 'VimEnter', -- enabling this event makes packer install it in opt folder and screwing it. works without it
+   --     -- this reffers to local file in after/plugin folder -- this reffers to local file in after/plugin folder
+   --    -- config = function() require('dashboard-nvim') end,
+   --    requires = {'nvim-tree/nvim-web-devicons'}
+   -- }
 
    use {
       'kana/vim-textobj-entire',

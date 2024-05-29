@@ -48,3 +48,16 @@ ls.add_snippets(nil, {
         }),
     },
 })
+
+ls.add_snippets(nil, {
+    all = {
+        snip({
+            trig = "inf",
+            namr = "@info",
+
+            dscr = "@info tag",
+        }, {
+            text("// @info "),
+        }),
+    },
+})

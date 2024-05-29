@@ -48,36 +48,60 @@ neogit.setup {
   },
   -- Setting any section to `false` will make the section not render at all
   sections = {
+    -- Reverting/Cherry Picking
+    sequencer = {
+      folded = false,
+      hidden = false,
+    },
     untracked = {
-      folded = false
+      folded = false,
+      hidden = false,
     },
     unstaged = {
-      folded = false
+      folded = false,
+      hidden = false,
     },
     staged = {
-      folded = false
+      folded = false,
+      hidden = false,
     },
     stashes = {
-      folded = true
+      folded = true,
+      hidden = false,
     },
-    unpulled = {
-      folded = true
+    unpulled_upstream = {
+      folded = true,
+      hidden = false,
     },
-    unmerged = {
-      folded = false
+    unmerged_upstream = {
+      folded = false,
+      hidden = false,
+    },
+    unpulled_pushRemote = {
+      folded = true,
+      hidden = false,
+    },
+    unmerged_pushRemote = {
+      folded = false,
+      hidden = false,
     },
     recent = {
-      folded = true
+      folded = true,
+      hidden = false,
+    },
+    rebase = {
+      folded = true,
+      hidden = false,
     },
   },
   -- override/add mappings
   mappings = {
     -- modify status buffer mappings
-    status = {
+    status = { -- commenting out - after update those commands were removed
       -- Adds a mapping with "B" as key that does the "BranchPopup" command
-      ["B"] = "BranchPopup",
+      -- ["B"] = "BranchPopup",
       -- Removes the default mapping of "s"
-      ["s"] = "",
+      -- ["s"] = "",
     }
   }
 }
