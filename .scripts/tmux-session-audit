@@ -1,0 +1,35 @@
+#!/usr/bin/env bash
+
+session="$1"
+
+# Check if the session already exists
+if tmux has-session -t $session 2>/dev/null; then
+    echo "Session $session already exists. Attaching to it."
+    tmux attach-session -t $session
+else
+   tmux new-session -d -s $session
+
+   # I have window 0 called zsh, hence I don't pass 0 as 1st window
+   tmux rename-window -t $session:zsh 'run'
+   tmux split-window -t $session -h
+   # tmux send-keys -t $session:$window 'git fetch --prune --all' C-m
+
+   window='vim'
+   tmux new-window -t $session -n $window
+   tmux send-keys -t $session:$window 'nvim'
+
+   window='test'
+   tmux new-window -t $session -n $window
+
+   window='misc'
+   tmux new-window -t $session -n $window
+   # tmux send-keys -t $session:$window 'npm run serve'
+
+   window='misc2'
+   tmux new-window -t $session -n $window
+
+   # move to 2nd window
+   tmux select-window -t $session:2
+
+   tmux attach-session -t $session
+fi

@@ -1,0 +1,22 @@
+#!/bin/env bash
+
+CURR_HOUR=$(date "+ %H")
+
+
+if (( $(echo "$CURR_HOUR <= 7" | bc -l) )); then
+   brightness set 0.3
+   exit 0
+fi
+
+if (( $(echo "$CURR_HOUR < 16" | bc -l) )); then
+   brightness set 0.9
+   exit 0
+fi
+
+
+if (( $(echo "$CURR_HOUR < 21" | bc -l) )); then
+   brightness set 0.5
+   exit 0
+fi
+
+brightness set 0.3

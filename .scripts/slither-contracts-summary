@@ -1,0 +1,13 @@
+#!/usr/bin/env bash
+
+if  [ -z remappings.txt ]; then
+   if ! [ -z foundry.toml ]; then
+      forge remappings > remappings.txt
+   fi
+
+   if ! [ -z package.json ]; then
+      hh-to-forge
+   fi
+fi
+
+slither $1 --ignore-compile --solc-remaps "$(tr '\n' ' ' < remappings.txt | xargs)" --print contract-summary

@@ -1,0 +1,14 @@
+#!/bin/bash
+#set -x
+
+awk '/\/\/ File/{n+=1}; n % 2 == 1 {print > "output"((n-1)/2)}' $1 # split the file into separate ones via '// File'
+tac $1 | awk '/\/\/ File/ {print;exit} 1' | tac > outputx # get the last occurence
+
+for FILE in output*; do
+   FILE_PATH=$(grep -Eo '/.*.sol' "$FILE" |head -n 1 | cut -d' ' -f3)
+   BASE_NAME=$(basename $FILE_PATH)
+   echo File path=$FILE_PATH
+   echo Basename=$BASE_NAME
+
+   mv $FILE $BASE_NAME
+done

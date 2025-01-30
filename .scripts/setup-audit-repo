@@ -1,0 +1,67 @@
+#! /usr/bin/env bash
+set -x
+
+if ! command -v gh > /dev/null ; then
+   echo "Command gh not found, please install it before using this tool"
+   exit 1
+fi
+
+if [ -z $1 ]; then
+   echo "Usage: $0 <git repo url>"
+   exit 1
+fi
+
+while [[ $# -gt 0 ]]; do
+  case $1 in
+    -l|--local-folder)
+      LOCAL_FOLDER="$2"
+      shift # past argument
+      shift # past value
+      ;;
+    -u|--user)
+      ON_BEHALF_OF="$2"
+      shift # past argument
+      shift # past value
+      ;;
+    -h|--help)
+      echo "Usage $0 <git repo url>"
+      echo "Params:"
+      echo -e "\t-l\t Local folder to put the repo to"
+      echo -e "\t-u\t User (org) for which to create the repo"
+      exit 0
+      ;;
+    -*|--*)
+      echo "Unknown option $1"
+      exit 1
+      ;;
+    *)
+      POSITIONAL_ARGS+=("$1") # save positional arg
+      shift # past argument
+      ;;
+  esac
+done
+
+set -- "${POSITIONAL_ARGS[@]}" # restore positional parameters
+
+REPO_URL="$1"
+REPO_NAME=$(basename "$1" | cut -d'.' -f1)
+LOCAL_FOLDER=$REPO_NAME
+
+git clone --recurse $REPO_URL $LOCAL_FOLDER
+cd $LOCAL_FOLDER
+
+if [ -z $ON_BEHALF_OF ]; then
+   ON_BEHALF_OF=$(git config user.name)
+   echo "{\"name\":\"$REPO_NAME\", \"private\":true}" | gh api -X POST user/repos --input -
+else
+   echo "{\"name\":\"$REPO_NAME\", \"private\":true}" | gh api -X POST orgs/$ON_BEHALF_OF/repos --input -
+fi
+
+MAIN_BRANCH=$(git rev-parse --abbrev-ref HEAD)
+
+git remote set-url origin git@github.com:$ON_BEHALF_OF/$REPO_NAME
+git push --set-upstream origin $MAIN_BRANCH
+git checkout -b deliriusz
+git push --set-upstream origin deliriusz
+
+tmux-session-audit $REPO_NAME

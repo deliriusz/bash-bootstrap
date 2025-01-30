@@ -1,0 +1,24 @@
+#!/bin/env bash
+
+CURR_BRIGHTNESS=$(xrandr --verbose | grep -i brightness | cut -f2 -d ' ' | head -n1)
+
+echo $CURR_BRIGHTNESS
+case $1 in
+   "add") CURR_BRIGHTNESS=$(bc <<< "$CURR_BRIGHTNESS + $2") ;;
+   "sub") CURR_BRIGHTNESS=$(bc <<< "$CURR_BRIGHTNESS - $2") ;;
+   "set") CURR_BRIGHTNESS=$2 ;;
+   "eq") CURR_BRIGHTNESS=$2 ;;
+   *) exit 1 ;;
+esac
+
+echo $CURR_BRIGHTNESS
+
+if (( $(echo "$CURR_BRIGHTNESS > 3" | bc -l) )); then
+   echo "too big" && exit 1
+fi
+
+if (( $(echo "$CURR_BRIGHTNESS < 0.1" | bc -l) )); then
+   echo "too small" && exit 1
+fi
+
+xrandr --output DP-1 --brightness $CURR_BRIGHTNESS

@@ -1,0 +1,5 @@
+!#/usr/bin/env bash
+-x
+
+BT_DEVICE=$(bluetoothctl devices | grep WH | cut -d' ' -f2) # in my case, I hardcode WH... name of the device
+bluetoothctl connect "$BT_DEVICE"
