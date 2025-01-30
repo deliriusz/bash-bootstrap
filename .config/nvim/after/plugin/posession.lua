@@ -6,6 +6,7 @@ require('possession').setup {
     debug = false,
     logfile = false,
     prompt_no_cr = false,
+    autoload = 'last_cwd', -- 'false', 'last' or 'auto_cwd' or 'last_cwd' or fun(): string
     autosave = {
         current = true,  -- or fun(name): boolean
         tmp = false,  -- or fun(): boolean
@@ -70,9 +71,9 @@ require('possession').setup {
         list = {
             default_action = 'load',
             mappings = {
-                save = { n = '<c-x>', i = '<c-x>' },
-                load = { n = '<c-v>', i = '<c-v>' },
-                delete = { n = '<c-t>', i = '<c-t>' },
+                save = { n = '<c-s>', i = '<c-s>' },
+                load = { n = '<c-l>', i = '<c-l>' },
+                delete = { n = '<c-d>', i = '<c-d>' },
                 rename = { n = '<c-r>', i = '<c-r>' },
             },
         },

@@ -19,7 +19,7 @@ vim.opt.rtp:append { '/usr/local/opt/fzf' } --adding fzf to vim
 vim.opt.encoding = "utf-8"
 vim.opt.enc = "utf-8"
 vim.opt.fenc = "utf-8"
-vim.opt.tenc = "utf-8"
+-- vim.opt.tenc = "utf-8"
 
 vim.opt.incsearch = true
 vim.opt.ignorecase = true

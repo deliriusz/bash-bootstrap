@@ -52,3 +52,14 @@ vim.keymap.set("n", "<leader>sv", "<cmd>vsplit<CR>")
 
 -- copy visually seleted lines with line numbers to + buffer
 vim.keymap.set("v", "<f4>", ":<home>redir @+<bar>silent! <end>number<bar>redir END<CR>")
+vim.keymap.set("n", "<f3>", ':let @+ = expand("%")<CR>')
+-- toggle invisible chars
+-- vim.keymap.set('n', '<leader>l', function() vim.o.list = not vim.o.list end)
+
+-- write console.log for word under cursor
+vim.keymap.set("n", "<leader>l", '"ayiwoconsole.log(\'<C-R>a:\', <C-R>a);<Esc>')
+-- write console.log for highlighted data
+vim.keymap.set("x", "<leader>l", '"ayoconsole.log(\'<C-R>a:\', <C-R>a);<Esc>')
+
+-- unmap change whole file. I constantly press it when calling 'ciw'
+vim.keymap.set("n", "cie", '<Nop>')

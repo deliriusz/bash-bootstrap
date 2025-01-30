@@ -51,6 +51,7 @@ return require('packer').startup(function(use)
       after = "nvim-treesitter",
       requires = "nvim-treesitter/nvim-treesitter",
    })
+  use("stevearc/aerial.nvim")
    --use {'nvim-telescope/telescope-file-browser.nvim'} -- not used
    use('nvim-treesitter/playground')
    use('theprimeagen/harpoon')
@@ -71,7 +72,7 @@ return require('packer').startup(function(use)
    -- tabline
    use {
       'akinsho/bufferline.nvim',
-      tag = "v3.*",
+      -- tag = "v3.*",
       requires = 'nvim-tree/nvim-web-devicons'
    }
 
@@ -136,5 +137,20 @@ return require('packer').startup(function(use)
       },
       tag = 'nightly' -- optional, updated every week. (see issue #1193)
    }
+
+   use {
+      'mrcjkb/rustaceanvim'
+   }
+
+   use 'mfussenegger/nvim-dap'
+
+   use {
+      "rcarriga/nvim-dap-ui",
+      requires = {
+         "mfussenegger/nvim-dap",
+         "nvim-neotest/nvim-nio"
+      }
+   }
+
 
 end)
